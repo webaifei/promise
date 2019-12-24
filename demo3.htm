@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2</title>
+</head>
+<body>
+
+<input id="say" type="input">
+
+
+
+<script src="./promise2.js"></script>
+<script type="text/javascript">
+const p1 = new Promise(function (resolve, reject) {
+  setTimeout(()=> {
+    resolve({
+      value: "ok"
+    })
+  }, 1000);
+}).then((res)=> {
+  console.log(res);
+}).then(function (res){
+  console.log(res)
+  return {
+    ngnice: "aaa"
+  }
+}).then((res)=> {
+  return new Promise(function (resolve, reject) {
+    setTimeout(()=> {
+      reject({
+        error: "msg"
+      })
+    });
+  })
+}, (err)=> {
+  console.log(err);
+}).catch(err=> {
+  console.error(err);
+});
+
+</script>
+</body>
+</html>

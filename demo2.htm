@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo2</title>
+</head>
+<body>
+
+<input id="say" type="input">
+
+<script type="text/javascript" src="mypromise.js"></script>
+
+<script type="text/javascript">
+const p1 = new Promise(function (resolve, reject) {
+  setTimeout(()=> {
+    resolve({
+      value: "ok"
+    })
+  }, 1000);
+}).then((res)=> {
+  console.log(res);
+  return {
+    name: "aaa"
+  }
+}).then(res=> {
+  console.log(res);
+});
+
+</script>
+</body>
+</html>
